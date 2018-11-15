@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package rafts;
+
+service Distribute {
+    // 请求follower为自己投票
+    rpc request_vote(ReqVote) returns (Vote) {}
+    // 同步日志
+    rpc append_entries(ReqAppendEntries) returns (ResAppendEntries) {}
+
+    rpc ping(Ping) returns (Pong) {}
+}
+
+message Ping {
+    string addr = 1;
+    string peerId = 2;
+}
+
+message Pong {
+    bool state = 1;
+}
+
+message ReqVote {
+    // candidate任期
+    int32 term = 1;
+    // candidate标识
+    string candidateId = 2;
+    // candidate最新日志项
+    int32 lastLogIndex = 3;
+    // candidate最新日志项的任期
+    int32 lastLogTerm = 4;
+}
+
+message Vote {
+    // 当前任期
+    int32 term = 1;
+    // 是否投票给candidate, true为投票
+    bool voteGranted = 2;
+}
+
+message Entries {
+    string opt = 1;
+    string obj = 2;
+    string args = 3;
+    string timestamp = 4;
+}
+
+message ReqAppendEntries {
+    // leader 任期
+    int32 term = 1;
+    // leader标识
+    string leaderId = 2;
+    // 新日志的前一个日志编号
+    int32 prevLogIndex = 3;
+    // 新日志的前一个日志的任期
+    int32 prevLogTerm = 4;
+    // 日志项（如果为空则作为心跳包）
+    repeated Entries entries = 5;
+    // leader节点的commitIndex
+    int32 leaderCommit = 6;
+}
+
+message ResAppendEntries {
+    // 节点的当前任期
+    int32 term = 1;
+    // 如果匹配上能成功则为true
+    bool success = 2;
+}
