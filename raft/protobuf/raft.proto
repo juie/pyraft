@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package rafts;
 
-service Distribute {
+service ServeRaft {
     // 请求follower为自己投票
     rpc request_vote(ReqVote) returns (Vote) {}
     // 同步日志

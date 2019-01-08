@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     syntax='proto3',
     serialized_options=None,
     serialized_pb=_b(
-        '\n\nraft.proto\x12\x05rafts\"$\n\x04Ping\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0e\n\x06peerId\x18\x02 \x01(\t\"\x15\n\x04Pong\x12\r\n\x05state\x18\x01 \x01(\x08\"W\n\x07ReqVote\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x13\n\x0b\x63\x61ndidateId\x18\x02 \x01(\t\x12\x14\n\x0clastLogIndex\x18\x03 \x01(\x05\x12\x13\n\x0blastLogTerm\x18\x04 \x01(\x05\")\n\x04Vote\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x13\n\x0bvoteGranted\x18\x02 \x01(\x08\"D\n\x07\x45ntries\x12\x0b\n\x03opt\x18\x01 \x01(\t\x12\x0b\n\x03obj\x18\x02 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\t\"\x94\x01\n\x10ReqAppendEntries\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x10\n\x08leaderId\x18\x02 \x01(\t\x12\x14\n\x0cprevLogIndex\x18\x03 \x01(\x05\x12\x13\n\x0bprevLogTerm\x18\x04 \x01(\x05\x12\x1f\n\x07\x65ntries\x18\x05 \x03(\x0b\x32\x0e.rafts.Entries\x12\x14\n\x0cleaderCommit\x18\x06 \x01(\x05\"1\n\x10ResAppendEntries\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x0f\n\x07success\x18\x02 \x01(\x08\x32\xa5\x01\n\nDistribute\x12-\n\x0crequest_vote\x12\x0e.rafts.ReqVote\x1a\x0b.rafts.Vote\"\x00\x12\x44\n\x0e\x61ppend_entries\x12\x17.rafts.ReqAppendEntries\x1a\x17.rafts.ResAppendEntries\"\x00\x12\"\n\x04ping\x12\x0b.rafts.Ping\x1a\x0b.rafts.Pong\"\x00\x62\x06proto3')
+        '\n\nraft.proto\x12\x05rafts\"$\n\x04Ping\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0e\n\x06peerId\x18\x02 \x01(\t\"\x15\n\x04Pong\x12\r\n\x05state\x18\x01 \x01(\x08\"W\n\x07ReqVote\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x13\n\x0b\x63\x61ndidateId\x18\x02 \x01(\t\x12\x14\n\x0clastLogIndex\x18\x03 \x01(\x05\x12\x13\n\x0blastLogTerm\x18\x04 \x01(\x05\")\n\x04Vote\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x13\n\x0bvoteGranted\x18\x02 \x01(\x08\"D\n\x07\x45ntries\x12\x0b\n\x03opt\x18\x01 \x01(\t\x12\x0b\n\x03obj\x18\x02 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\t\"\x94\x01\n\x10ReqAppendEntries\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x10\n\x08leaderId\x18\x02 \x01(\t\x12\x14\n\x0cprevLogIndex\x18\x03 \x01(\x05\x12\x13\n\x0bprevLogTerm\x18\x04 \x01(\x05\x12\x1f\n\x07\x65ntries\x18\x05 \x03(\x0b\x32\x0e.rafts.Entries\x12\x14\n\x0cleaderCommit\x18\x06 \x01(\x05\"1\n\x10ResAppendEntries\x12\x0c\n\x04term\x18\x01 \x01(\x05\x12\x0f\n\x07success\x18\x02 \x01(\x08\x32\xa4\x01\n\tServeRaft\x12-\n\x0crequest_vote\x12\x0e.rafts.ReqVote\x1a\x0b.rafts.Vote\"\x00\x12\x44\n\x0e\x61ppend_entries\x12\x17.rafts.ReqAppendEntries\x1a\x17.rafts.ResAppendEntries\"\x00\x12\"\n\x04ping\x12\x0b.rafts.Ping\x1a\x0b.rafts.Pong\"\x00\x62\x06proto3')
 )
 
 _PING = _descriptor.Descriptor(
@@ -389,18 +389,18 @@ ResAppendEntries = _reflection.GeneratedProtocolMessageType('ResAppendEntries', 
 ))
 _sym_db.RegisterMessage(ResAppendEntries)
 
-_DISTRIBUTE = _descriptor.ServiceDescriptor(
-    name='Distribute',
-    full_name='rafts.Distribute',
+_SERVERAFT = _descriptor.ServiceDescriptor(
+    name='ServeRaft',
+    full_name='rafts.ServeRaft',
     file=DESCRIPTOR,
     index=0,
     serialized_options=None,
     serialized_start=487,
-    serialized_end=652,
+    serialized_end=651,
     methods=[
         _descriptor.MethodDescriptor(
             name='request_vote',
-            full_name='rafts.Distribute.request_vote',
+            full_name='rafts.ServeRaft.request_vote',
             index=0,
             containing_service=None,
             input_type=_REQVOTE,
@@ -409,7 +409,7 @@ _DISTRIBUTE = _descriptor.ServiceDescriptor(
         ),
         _descriptor.MethodDescriptor(
             name='append_entries',
-            full_name='rafts.Distribute.append_entries',
+            full_name='rafts.ServeRaft.append_entries',
             index=1,
             containing_service=None,
             input_type=_REQAPPENDENTRIES,
@@ -418,7 +418,7 @@ _DISTRIBUTE = _descriptor.ServiceDescriptor(
         ),
         _descriptor.MethodDescriptor(
             name='ping',
-            full_name='rafts.Distribute.ping',
+            full_name='rafts.ServeRaft.ping',
             index=2,
             containing_service=None,
             input_type=_PING,
@@ -426,8 +426,8 @@ _DISTRIBUTE = _descriptor.ServiceDescriptor(
             serialized_options=None,
         ),
     ])
-_sym_db.RegisterServiceDescriptor(_DISTRIBUTE)
+_sym_db.RegisterServiceDescriptor(_SERVERAFT)
 
-DESCRIPTOR.services_by_name['Distribute'] = _DISTRIBUTE
+DESCRIPTOR.services_by_name['ServeRaft'] = _SERVERAFT
 
 # @@protoc_insertion_point(module_scope)
